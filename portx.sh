@@ -2,6 +2,9 @@
 
 #Install tools
 if [[ $1 == -i ]]; then
+    USUARIO=$(whoami)
+    RUTA=$(readlink -e $0)
+    sudo ln -s $RUTA /usr/bin/portx
     sudo apt update -y ; sudo apt install -y tor proxychains nmap hydra netdiscover curl jq links && clear || exit
     service tor status
 
